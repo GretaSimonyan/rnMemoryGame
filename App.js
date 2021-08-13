@@ -1,13 +1,10 @@
 import React from 'react';
 import {
   SafeAreaView,
-  StyleSheet,
+  // StyleSheet,
   ScrollView,
-  // View,
-  Text,
   StatusBar,
 } from 'react-native';
-// import GlobalStyles from './src/styled/globalStyles';
 import Home from './src/pages/Home';
 import Store from './src/Store';
 
@@ -19,7 +16,6 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView contentInsetAdjustmentBehavior="automatic">
-          {/* <GlobalStyles /> */}
           <Store>
             <Home />
           </Store>

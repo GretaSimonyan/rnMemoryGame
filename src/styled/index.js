@@ -1,4 +1,4 @@
 import StyledView from './View';
-import Text from './Text';
+import StyledText from './Text';
 
-export {StyledView, Text};
+export {StyledView, StyledText};

@@ -15,21 +15,23 @@ function Home() {
     <>
       <Header />
       <StyledView
-        grid
-        gTC="1fr 1fr"
+        flex
         m="20px auto"
-        justI="center"
-        gap="20px 20px"
         fontSize="14px"
+        justC="space-around"
         alignI="stretch">
-        <Link href="/selects" onClick={handlClick}>
+        <Link
+          // href="/selects"
+          onPress={handlClick}>
           CHANGE SELECTION
         </Link>
-        <Link href="/board" onClick={handlClick}>
+        <Link
+          // href="/board"
+          onPress={handlClick}>
           PLAY GAME
         </Link>
       </StyledView>
-      {state.view === 'CHANGE SELECTION' ? <Selects /> : <Board />}
+      {/* {state.view === 'CHANGE SELECTION' ? <Selects /> : <Board />} */}
     </>
   );
 }

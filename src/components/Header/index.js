@@ -1,13 +1,12 @@
 import React from 'react';
-import {StyledView} from '../../styled';
-import {Text} from 'react-native';
+import {StyledText, StyledView} from '../../styled';
 
 function Header() {
   return (
-    <StyledView p="20px 0" fontSize="30px">
-      <StyledView flex justC="center" c="orange">
-        <Text>Memory</Text>
-      </StyledView>
+    <StyledView flex justC="center" fD="row">
+      <StyledText p="20px 0" fontSize="30px" c="orange">
+        Memory
+      </StyledText>
     </StyledView>
   );
 }

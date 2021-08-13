@@ -10,6 +10,36 @@ const size = ({w, h, minW, maxW, minH, maxH, lh}) => `
   ${lh ? `line-height: ${lh}` : ''};
 `;
 
+const flexBox = ({
+  flex,
+  f,
+  fD,
+  fW,
+  fF,
+  fG,
+  fSh,
+  fB,
+  order,
+  justC,
+  alignI,
+  alignS,
+  alignC,
+}) => `
+  ${flex ? 'display: flex' : ''};
+  ${f ? `flex: ${f}` : ''};
+  ${fD ? `flex-direction: ${fD}` : ''};
+  ${fW ? `flex-wrap: ${fW}` : ''};
+  ${fF ? `flex-flow: ${fF}` : ''};
+  ${fG ? `flex-grow: ${fG}` : ''};
+  ${fSh ? `flex-shrink: ${fSh}` : ''};
+  ${fB ? `flex-basis: ${fB}` : ''};
+  ${order ? `order: ${order}` : ''};
+  ${justC ? `justify-content: ${justC}` : ''};
+  ${alignI ? `align-items: ${alignI}` : ''};
+  ${alignS ? `align-self: ${alignS}` : ''};
+  ${alignC ? `align-content: ${alignC}` : ''}
+`;
+
 const marginPadding = ({m, p, mT, mB, mL, mR, pT, pB, pL, pR}) => `
   ${m ? `margin: ${m}` : ''};
   ${p ? `padding: ${p}` : ''};
@@ -175,6 +205,7 @@ const setStyles = props => `
   ${marginPadding(props)}
   ${positions(props)}
   ${backgrounds(props)}
+  ${flexBox(props)}
   ${border(props)}
   ${other(props)}
 `;
