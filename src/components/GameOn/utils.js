@@ -13,19 +13,3 @@ export const generate = cardsNum => {
   }));
   return c.sort(() => Math.random() - 0.5);
 };
-
-export const columns = width => {
-  let w = '100px 100px';
-  for (let i = 1; i <= width - 2; i++) {
-    w += ' 100px';
-  }
-  return w;
-};
-
-export const rows = height => {
-  let r = '120px 120px';
-  for (let i = 1; i <= height - 2; i++) {
-    r += ' 120px';
-  }
-  return r;
-};

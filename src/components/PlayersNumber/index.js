@@ -7,8 +7,8 @@ function PlayersNumber() {
   const [state] = useContext(Context);
 
   return (
-    <StyledView id="playersNumber" grid gTC="1fr 1fr" gTR="1fr" gap="200px">
-      <StyledView>
+    <StyledView id="playersNumber" flex w="100%" justC="space-around" fD="row">
+      <StyledView margin="auto">
         {state.currentPlayers.map((item = state.activePlayer, key) => (
           <StyledView key={key}>
             <Text>
@@ -17,7 +17,7 @@ function PlayersNumber() {
           </StyledView>
         ))}
       </StyledView>
-      <StyledView>
+      <StyledView margin="auto">
         <Text>Current Player: {state.activePlayer.title}</Text>
       </StyledView>
     </StyledView>

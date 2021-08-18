@@ -1,11 +1,7 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {StyledView} from '../../styled';
 import {Context} from '../../Store';
-import {
-  setPlayersValue,
-  setActivePlayer,
-  setCurrentPlayers,
-} from '../../Actions';
+import {setCurrentPlayers} from '../../Actions';
 import {Text} from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 
@@ -13,29 +9,25 @@ function PlayersSelect() {
   const [state, dispatch] = useContext(Context);
   const players = [1, 2, 3, 4];
 
-  const statePlayers = [...state.players];
-  statePlayers.length = state.playersValue;
+  useEffect(() => {
+    dispatch(setCurrentPlayers(state.playersValue));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const handleNumberChange = e => {
-    dispatch(setPlayersValue(players[e.target.value]));
-    const randomPlayer = statePlayers.sort(() => 0.5 - Math.random())[0];
-    dispatch(setActivePlayer(randomPlayer));
+  const handleNumberChange = value => {
+    dispatch(setCurrentPlayers(+value));
   };
 
-  function currArrChanged() {
-    dispatch(setCurrentPlayers(statePlayers));
-  }
-
   return (
-    <StyledView grid gap="15px">
+    <StyledView flex fD="column">
       <StyledView fontSize="25px">
         <Text>Players Number</Text>
       </StyledView>
       <RNPickerSelect
-        onChange={handleNumberChange}
-        onClick={currArrChanged}
+        onValueChange={handleNumberChange}
+        value={state.playersValue}
         items={players.map(num => ({
-          label: num,
+          label: num.toString(),
           value: num,
         }))}
       />

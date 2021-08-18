@@ -1,10 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useContext, useEffect} from 'react';
 import {Context} from '../../Store';
 import {StyledView} from '../../styled';
-import Card from '../StylesComp/Card';
 import Won from '../Won';
-import {columns, rows, generate} from './utils';
-import {Text} from 'react-native';
+import {generate} from './utils';
+import {ImageBackground, StyleSheet, TouchableOpacity} from 'react-native';
 
 import {
   setActivePlayer,
@@ -27,7 +27,7 @@ function GameOn() {
     } else {
       dispatch(setCards(generate(cardsNum)));
     }
-  }, [cardsNum, dispatch]);
+  }, [cardsNum]);
 
   const {cards, firstCard, secondCard} = state;
 
@@ -85,6 +85,7 @@ function GameOn() {
   }, [firstCard, onFailureGuess, onSuccessGuess, secondCard]);
 
   function handleClick(card) {
+    console.log(card);
     if (!card.canFlip) {
       return;
     }
@@ -96,24 +97,51 @@ function GameOn() {
 
   return (
     <>
-      <StyledView
-        id="gameOn"
-        grid
-        gap="5px 5px"
-        gTC={columns(state.width)}
-        gTR={rows(state.height)}>
+      <StyledView id="gameOn" flex fD="row" fW="wrap">
         {cards.map((pic, index) => (
-          <Card
-            bgImg={pic.imageURL}
-            key={pic + index}
-            onClick={() => handleClick(pic)}
-            isFlipped={pic.isFlipped}
-          />
+          <TouchableOpacity
+            onPress={() => handleClick(pic)}
+            style={[
+              styles.button,
+              {
+                transform: [{rotateY: '180deg'}],
+                width: 100 / state.width + '%',
+              },
+            ]}
+            key={index + pic}>
+            {pic.isFlipped ? (
+              <ImageBackground
+                accessibilityRole="image"
+                source={pic.imageURL}
+                resizeMode="contain"
+                style={styles.image}
+              />
+            ) : null}
+          </TouchableOpacity>
         ))}
       </StyledView>
-      <Text>{isDone && <Won />}</Text>
+      {isDone && <Won />}
     </>
   );
 }
 
+const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+    width: '100%',
+    height: 120,
+    backgroundColor: 'white',
+  },
+  box: {
+    backgroundColor: '#00ff00',
+  },
+  button: {
+    padding: 1,
+    borderRadius: 5,
+    borderColor: 'orange',
+    backgroundColor: 'orange',
+    borderWidth: 2,
+    height: 120,
+  },
+});
 export default GameOn;

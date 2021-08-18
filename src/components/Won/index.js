@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import {Context} from '../../Store';
 import {setWinner} from '../../Actions';
-import {StyledView} from '../../styled';
+import {StyledView, StyledText} from '../../styled';
 import Button from '../StylesComp/Button.js';
 
 function Won() {
@@ -32,18 +32,13 @@ function Won() {
       tAlign="center"
       bgColor="orange"
       overflow="hidden">
-      <StyledView
-        grid
-        gap="15px"
-        gTR="1fr 1fr auto"
-        justI="center"
-        fontSize="30px">
-        <StyledView c="azure">
+      <StyledView flex fD="column" alignI="center" fontSize="30px">
+        <StyledText c="azure">
           Congratulations Player {state.winner.title}
-        </StyledView>
-        <StyledView c="azure">
+        </StyledText>
+        <StyledText c="azure">
           You win by gaining {state.winner.point} points
-        </StyledView>
+        </StyledText>
         <Button href="/"> Restart </Button>
       </StyledView>
     </StyledView>

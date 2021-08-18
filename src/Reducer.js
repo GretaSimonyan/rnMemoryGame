@@ -42,11 +42,18 @@ const Reducer = (state, action) => {
         ...state,
         players: action.payload,
       };
-    case SET_CURRENT_PLAYERS:
+    case SET_CURRENT_PLAYERS: {
+      const {players} = state;
+      const currentPlayers = [...players].splice(0, action.payload);
+      const randomIndex =
+        Number.parseInt(Math.random() * 1000, 10) % action.payload;
       return {
         ...state,
-        currentPlayers: action.payload,
+        currentPlayers,
+        activePlayer: currentPlayers[randomIndex],
+        playersValue: action.payload,
       };
+    }
     case SET_WINNER:
       return {
         ...state,

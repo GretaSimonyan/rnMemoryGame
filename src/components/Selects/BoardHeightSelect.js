@@ -1,24 +1,25 @@
 import React, {useContext} from 'react';
-import {StyledView} from '../../styled';
+import {StyledView, StyledText} from '../../styled';
 import {Context} from '../../Store';
 import {setHeight} from '../../Actions';
 import RNPickerSelect from 'react-native-picker-select';
 
 function BoardHeightSelect() {
   const [state, dispatch] = useContext(Context);
-  const heightArr = [2, 3, 4, 5, 6, 7, 8];
+  const heightArr = [2, 3, 4, 5, 6];
 
-  const handleNumberChange = e => {
-    dispatch(setHeight(heightArr[e.target.value]));
+  const handleNumberChange = value => {
+    dispatch(setHeight(+value));
   };
 
   return (
-    <StyledView grid gTR="1fr 1fr" gap="5px">
-      <StyledView fontSize="20px"> Height </StyledView>
+    <StyledView flex fD="column">
+      <StyledText fontSize="20px"> Height </StyledText>
       <RNPickerSelect
-        onChange={e => handleNumberChange(e)}
+        onValueChange={handleNumberChange}
+        value={state.height}
         items={heightArr.map((num = state.height) => ({
-          label: num,
+          label: num.toString(),
           value: num,
         }))}
       />

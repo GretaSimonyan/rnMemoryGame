@@ -7,12 +7,10 @@ function Board() {
   return (
     <StyledView
       id="board"
-      grid
-      gTC="1fr"
-      gap="10px 0"
-      justI="center"
+      flex
       alignI="center"
-      gTR="50px auto auto">
+      fD="column"
+      justC="space-around">
       <PlayersNumber />
       <GameOn />
     </StyledView>

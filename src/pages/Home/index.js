@@ -19,19 +19,12 @@ function Home() {
         m="20px auto"
         fontSize="14px"
         justC="space-around"
-        alignI="stretch">
-        <Link
-          // href="/selects"
-          onPress={handlClick}>
-          CHANGE SELECTION
-        </Link>
-        <Link
-          // href="/board"
-          onPress={handlClick}>
-          PLAY GAME
-        </Link>
+        w="100%"
+        fD="row">
+        <Link onPress={handlClick}>CHANGE SELECTION</Link>
+        <Link onPress={handlClick}>PLAY GAME</Link>
       </StyledView>
-      {/* {state.view === 'CHANGE SELECTION' ? <Selects /> : <Board />} */}
+      {state.view === 'CHANGE SELECTION' ? <Selects /> : <Board />}
     </>
   );
 }

@@ -1,16 +1,16 @@
 import React from 'react';
-import {StyledView} from '../../styled';
+import {StyledView, StyledText} from '../../styled';
 import PlayersSelect from './PlayersSelect';
 import BoardHeightSelect from './BoardHeightSelect';
 import BoardWidthSelect from './BoardWidthSelect';
 
 function Selects() {
   return (
-    <StyledView id="selects" grid gTC="1fr 1fr" justI="center">
+    <StyledView id="selects" flex justC="space-around" alignI="center">
       <PlayersSelect />
-      <StyledView id="bSizeSelect" grid gap="5px" tAlign="center">
-        <StyledView fontSize="25px">Board Size</StyledView>
-        <StyledView grid gTC="1fr 1fr" gap="15px">
+      <StyledView id="bSizeSelect" flex fD="column">
+        <StyledText fontSize="25px">Board Size</StyledText>
+        <StyledView flex justC="space-around" fD="row">
           <BoardHeightSelect />
           <BoardWidthSelect />
         </StyledView>
