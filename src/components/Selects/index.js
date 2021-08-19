@@ -6,11 +6,11 @@ import BoardWidthSelect from './BoardWidthSelect';
 
 function Selects() {
   return (
-    <StyledView id="selects" flex justC="space-around" alignI="center">
+    <StyledView id="selects" justC="space-around" alignI="center">
       <PlayersSelect />
-      <StyledView id="bSizeSelect" flex fD="column">
+      <StyledView id="bSizeSelect" fD="column">
         <StyledText fontSize="25px">Board Size</StyledText>
-        <StyledView flex justC="space-around" fD="row">
+        <StyledView justC="space-around" fD="row">
           <BoardHeightSelect />
           <BoardWidthSelect />
         </StyledView>

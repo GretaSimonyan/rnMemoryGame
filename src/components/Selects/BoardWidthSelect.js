@@ -13,7 +13,7 @@ function BoardWidthSelect() {
   };
 
   return (
-    <StyledView flex fD="column">
+    <StyledView fD="column">
       <StyledText fontSize="20px"> Width </StyledText>
       <RNPickerSelect
         onValueChange={handleNumberChange}

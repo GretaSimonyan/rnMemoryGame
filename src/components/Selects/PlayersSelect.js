@@ -19,7 +19,7 @@ function PlayersSelect() {
   };
 
   return (
-    <StyledView flex fD="column">
+    <StyledView fD="column">
       <StyledView fontSize="25px">
         <Text>Players Number</Text>
       </StyledView>

@@ -5,12 +5,7 @@ import GameOn from '../GameOn';
 
 function Board() {
   return (
-    <StyledView
-      id="board"
-      flex
-      alignI="center"
-      fD="column"
-      justC="space-around">
+    <StyledView id="board" alignI="center" fD="column" justC="space-around">
       <PlayersNumber />
       <GameOn />
     </StyledView>

@@ -13,7 +13,7 @@ function BoardHeightSelect() {
   };
 
   return (
-    <StyledView flex fD="column">
+    <StyledView fD="column">
       <StyledText fontSize="20px"> Height </StyledText>
       <RNPickerSelect
         onValueChange={handleNumberChange}

@@ -7,7 +7,7 @@ function PlayersNumber() {
   const [state] = useContext(Context);
 
   return (
-    <StyledView id="playersNumber" flex w="100%" justC="space-around" fD="row">
+    <StyledView id="playersNumber" w="100%" justC="space-around" fD="row">
       <StyledView margin="auto">
         {state.currentPlayers.map((item = state.activePlayer, key) => (
           <StyledView key={key}>

@@ -50,7 +50,7 @@ function GameOn() {
       dispatch(
         setCardInfo({cardId: secondCard.id, canFlip: true, isFlipped: false}),
       );
-    }, 1000);
+    }, 500);
     dispatch(resetChoosenCards());
 
     setNextPlayer();
@@ -85,7 +85,6 @@ function GameOn() {
   }, [firstCard, onFailureGuess, onSuccessGuess, secondCard]);
 
   function handleClick(card) {
-    console.log(card);
     if (!card.canFlip) {
       return;
     }
@@ -97,7 +96,7 @@ function GameOn() {
 
   return (
     <>
-      <StyledView id="gameOn" flex fD="row" fW="wrap">
+      <StyledView id="gameOn" fD="row" fW="wrap">
         {cards.map((pic, index) => (
           <TouchableOpacity
             onPress={() => handleClick(pic)}
@@ -131,9 +130,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 120,
     backgroundColor: 'white',
-  },
-  box: {
-    backgroundColor: '#00ff00',
   },
   button: {
     padding: 1,

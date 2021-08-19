@@ -2,29 +2,31 @@ import React, {useContext} from 'react';
 import {Context} from '../../Store';
 import {setView} from '../../Actions';
 import {StyledView} from '../../styled';
-import {Header, Selects, Board} from '../../components';
+import Header from '../../components/Header';
+import Selects from '../../components/Selects';
+import Board from '../../components/Board';
 import Link from '../../components/StylesComp/Link';
 
 function Home() {
   const [state, dispatch] = useContext(Context);
-  function handlClick(e) {
-    dispatch(setView(e.target.outerText));
+
+  function handlClick(text) {
+    dispatch(setView(text));
   }
 
   return (
     <>
       <Header />
       <StyledView
-        flex
+        fD="row"
+        w="100%"
         m="20px auto"
         fontSize="14px"
-        justC="space-around"
-        w="100%"
-        fD="row">
-        <Link onPress={handlClick}>CHANGE SELECTION</Link>
-        <Link onPress={handlClick}>PLAY GAME</Link>
+        justC="space-around">
+        <Link onPress={() => handlClick('CHANGE')}>CHANGE SELECTION</Link>
+        <Link onPress={() => handlClick('PLAY')}>PLAY GAME</Link>
       </StyledView>
-      {state.view === 'CHANGE SELECTION' ? <Selects /> : <Board />}
+      {state.view === 'CHANGE' ? <Selects /> : <Board />}
     </>
   );
 }
