@@ -8,13 +8,11 @@ function Selects() {
   return (
     <StyledView id="selects" justC="space-around" alignI="center">
       <PlayersSelect />
-      <StyledView id="bSizeSelect" fD="column">
-        <StyledText fontSize="25px">Board Size</StyledText>
-        <StyledView justC="space-around" fD="row">
-          <BoardHeightSelect />
-          <BoardWidthSelect />
-        </StyledView>
-      </StyledView>
+      <StyledText fontSize="25px" mT="10px">
+        Board Size
+      </StyledText>
+      <BoardHeightSelect />
+      <BoardWidthSelect />
     </StyledView>
   );
 }

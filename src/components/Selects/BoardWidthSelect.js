@@ -13,8 +13,10 @@ function BoardWidthSelect() {
   };
 
   return (
-    <StyledView fD="column">
-      <StyledText fontSize="20px"> Width </StyledText>
+    <StyledView>
+      <StyledText minW="25%" fontSize="20px">
+        Width
+      </StyledText>
       <RNPickerSelect
         onValueChange={handleNumberChange}
         value={state.width}

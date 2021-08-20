@@ -1,8 +1,7 @@
 import React, {useContext, useEffect} from 'react';
-import {StyledView} from '../../styled';
+import {StyledView, StyledText} from '../../styled';
 import {Context} from '../../Store';
 import {setCurrentPlayers} from '../../Actions';
-import {Text} from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 
 function PlayersSelect() {
@@ -19,14 +18,12 @@ function PlayersSelect() {
   };
 
   return (
-    <StyledView fD="column">
-      <StyledView fontSize="25px">
-        <Text>Players Number</Text>
-      </StyledView>
+    <StyledView>
+      <StyledText fontSize="25px">Players Number</StyledText>
       <RNPickerSelect
         onValueChange={handleNumberChange}
         value={state.playersValue}
-        items={players.map(num => ({
+        items={players.map((num = state.playersValue) => ({
           label: num.toString(),
           value: num,
         }))}

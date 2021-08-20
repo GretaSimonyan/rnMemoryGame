@@ -13,8 +13,10 @@ function BoardHeightSelect() {
   };
 
   return (
-    <StyledView fD="column">
-      <StyledText fontSize="20px"> Height </StyledText>
+    <StyledView>
+      <StyledText minW="25%" fontSize="20px">
+        Height
+      </StyledText>
       <RNPickerSelect
         onValueChange={handleNumberChange}
         value={state.height}
